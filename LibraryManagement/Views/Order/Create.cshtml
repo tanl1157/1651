@@ -1,0 +1,76 @@
+﻿@section PageCss {
+    <link href="~/Assets/Libs/datepicker/bootstrap-datepicker3.standalone.css" rel="stylesheet" />
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><a class="text-muted fw-light" href="/Order">Loan slip /</a> News</h4>
+
+    <!-- Basic Bootstrap Table -->
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <form id="frmCreate">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="mb-3 col-md-3 error-container">
+                                <label class="form-label" for="basic-default-fullname">borrow code</label>
+                                <input type="text" class="form-control" name="Code" />
+                            </div>
+                            <div class="mb-3 col-md-4 error-container">
+                                <label class="form-label" for="basic-default-message">Reader</label>
+                                <select name="Audience" class="select2 form-select">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4 repeater">
+                    <div class="card-body">
+                        <div data-repeater-list="books">
+                            <div class="row" data-repeater-item>
+                                <div class="mb-3 col-md-5 error-container">
+                                    <label class="form-label" for="basic-default-fullname">Book</label>
+                                    <select name="BookID" class="select2 form-select">
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-md-2 error-container">
+                                    <label class="form-label" for="basic-default-message">Quantity</label>
+                                    <input type="text" class="form-control" name="Quantity" value="1" />
+                                </div>
+                                <div class="mb-3 col-md-2 error-container">
+                                    <label class="form-label" for="basic-default-message">Borrowed date</label>
+                                    <input class="form-control datetimepicker" type="text" name="StrStartDate">
+                                </div>
+                                <div class="mb-3 col-md-2 error-container">
+                                    <label class="form-label" for="basic-default-message">Pay day</label>
+                                    <input class="form-control datetimepicker" type="text" name="StrEndDate">
+                                </div>
+                                <div class="mb-3 col-md-1 error-container">
+                                    <label class="form-label" for="basic-default-message"></label>
+                                    <button type="button" class="btn" data-repeater-delete><i class="tf-icons bx bx-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn" data-repeater-create><i class="tf-icons bx bx-plus-circle"></i></button>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-outline-primary" id="btnCreate">Add</button>
+                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--/ Basic Bootstrap Table -->
+</div>
+
+@section PageJs {
+    <script src="~/Assets/Libs/datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/Assets/Libs/datepicker/bootstrap-datepicker.vi.min.js"></script>
+    <script src="~/Assets/Libs/repeater/jquery.repeater.js"></script>
+    <script src="~/Assets/Scripts/Order/Create.js"></script>
+}

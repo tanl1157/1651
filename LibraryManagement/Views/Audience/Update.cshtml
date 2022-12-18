@@ -1,0 +1,49 @@
+﻿@using Base.Entity.MappedEntities
+@model Audience
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><a class="text-muted fw-light" href="/Audience">Reader /</a> Update</h4>
+
+    <!-- Basic Bootstrap Table -->
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form id="frmCreate">
+                        @Html.HiddenFor(m => m.ID)
+                        <div class="row">
+                            <div class="mb-3 col-md-3 error-container">
+                                <label class="form-label" for="basic-default-fullname">Identifiers code</label>
+                                @Html.TextBoxFor(m => m.IdentityCode, new { @class = "form-control", @autofocus = "autofocus" })
+                            </div>
+                            <div class="mb-4 col-md-4 error-container">
+                                <label class="form-label" for="basic-default-message">Name</label>
+                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-3 error-container">
+                                <label class="form-label" for="basic-default-message">Phone number</label>
+                                @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
+                            </div>
+                            <div class="mb-4 col-md-4 error-container">
+                                <label class="form-label" for="basic-default-message">Address</label>
+                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary" id="btnUpdate">Update</button>
+                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--/ Basic Bootstrap Table -->
+</div>
+
+@section PageJs {
+    <script src="~/Assets/Scripts/Audience/Update.js"></script>
+}

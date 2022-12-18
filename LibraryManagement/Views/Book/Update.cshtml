@@ -1,0 +1,68 @@
+﻿@using Base.Entity.MappedEntities
+@model Book
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><a class="text-muted fw-light" href="/Book">Book /</a> Update</h4>
+
+    <!-- Basic Bootstrap Table -->
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form id="frmCreate">
+                        @Html.HiddenFor(m => m.ID)
+                        <div class="row">
+                            <div class="mb-2 col-md-2 error-container">
+                                <label class="form-label" for="basic-default-fullname">Book code</label>
+                                @Html.TextBoxFor(m => m.Code, new { @class = "form-control", @autofocus = "autofocus" })
+                            </div>
+                            <div class="mb-6 col-md-6 error-container">
+                                <label class="form-label" for="basic-default-message">Book name</label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-4 col-md-4 error-container">
+                                <label class="form-label" for="basic-default-message">Category</label>
+                                @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+                            </div>
+                            <div class="mb-4 col-md-4 error-container">
+                                <label class="form-label" for="basic-default-message">Author</label>
+                                @Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="mb-4 col-md-4 error-container">
+                                <label class="form-label" for="basic-default-message">Publishing company</label>
+                                @Html.TextBoxFor(m => m.Publisher, new { @class = "form-control" })
+                            </div>
+                            <div class="mb-4 col-md-4 error-container">
+                                <label class="form-label" for="basic-default-fullname">Quantity</label>
+                                @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-4 col-md-4 error-container">
+                                <label class="form-label " for="basic-default-fullname">Activities?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" name="IsActive" @(Model.IsActive ? "checked" : "")>
+                                    <label class="form-check-label" for="defaultCheck3"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary" id="btnUpdate">Update</button>
+                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--/ Basic Bootstrap Table -->
+</div>
+
+@section PageJs {
+    <script src="~/Assets/Scripts/Book/Update.js"></script>
+}

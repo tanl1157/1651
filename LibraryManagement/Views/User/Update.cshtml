@@ -1,0 +1,49 @@
+﻿@using LibraryManagement.Models;
+@model ApplicationUserViewModel
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><a class="text-muted fw-light" href="/User">User /</a> Update</h4>
+
+    <!-- Basic Bootstrap Table -->
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form id="frmCreate">
+                        @Html.HiddenFor(m => m.Id)
+                        <div class="row">
+                            <div class="mb-3 col-md-3 error-container">
+                                <label class="form-label" for="basic-default-fullname">Email</label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @autofocus = "autofocus" })
+                            </div>
+                            <div class="mb-3 col-md-3 error-container">
+                                <label class="form-label" for="basic-default-message">Name</label>
+                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control"})
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-3 error-container">
+                                <label class="form-label" for="basic-default-message">Power</label>
+                                <select name="RoleName" class="select2 form-select" value="@Model.RoleName">
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-3 error-container">
+                                <label class="form-label" for="basic-default-message">New passwork (optional)</label>
+                                <input type="text" class="form-control" name="Password" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary" id="btnUpdate">Update</button>
+                        <button type="reset" class="btn btn-outline-secondary">cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--/ Basic Bootstrap Table -->
+</div>
+
+@section PageJs {
+    <script src="~/Assets/Scripts/User/Update.js"></script>
+}
